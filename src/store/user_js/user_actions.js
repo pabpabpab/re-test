@@ -4,7 +4,7 @@ export default {
     const offset = state.limit * (pageNumber - 1);
     const params = `?limit=${state.limit}&offset=${offset}`;
     const url = state.url.list + params;
-    console.log(url);
+    commit('setLoadingFlag', true);
     return dispatch('getJson', url, { root: true })
       .then((data) => {
         // console.log(data);
@@ -12,7 +12,11 @@ export default {
         commit('setTotalCount', data.total);
         commit('setPerPage', data.per_page);
         commit('setCurrentPage', data.page);
-        // return users;
+      })
+      .finally(() => {
+        setTimeout(() => {
+          commit('setLoadingFlag', false);
+        }, 1000);
       });
   },
 };

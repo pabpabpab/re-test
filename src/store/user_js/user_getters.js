@@ -4,4 +4,5 @@ export default {
   perPage: (state) => state.perPage,
   pageCount: (state) => Math.ceil(state.totalCount / state.perPage),
   currentPage: (state) => state.currentPage,
+  loading: (state) => state.loading,
 };

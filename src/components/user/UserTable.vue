@@ -4,6 +4,8 @@
       :data="tableData"
       max-height="500"
       :fit="true"
+      empty-text="Нет пользователей"
+      v-loading="loading"
       style="width: 100%">
       <el-table-column
         fixed
@@ -34,7 +36,7 @@
         label="Operations">
         <template slot-scope="scope">
           <el-button
-            @click.native.prevent="deleteRow(scope.$index, tableData)"
+            @click.native.prevent="deleteRow(scope.$index)"
             type="text"
             size="small">
             Remove
@@ -73,14 +75,13 @@ export default {
   computed: {
     ...mapGetters('user', [
       'users',
+      'loading',
     ]),
   },
 
   methods: {
-    deleteRow(index, rows) {
-      console.log(index);
-      console.log(rows);
-      // rows.splice(index, 1);
+    deleteRow(index) {
+      this.$store.commit('user/deleteUser', index);
     },
   },
 

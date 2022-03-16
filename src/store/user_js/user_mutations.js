@@ -21,18 +21,15 @@ export default {
   setCurrentPage: (state, value) => {
     state.currentPage = value;
   },
-  /*
-  deleteItemFromUsers: (state, userId) => {
+  deleteUser: (state, index) => {
     if (state.users.length === 0) {
       return;
     }
-    const users = state.users;
-    let index = users.findIndex(item => item.id === userId);
-    if (index === -1) {
-      return;
-    }
+    const { users } = state;
     users.splice(index, 1);
     state.users = [...users];
   },
-  */
+  setLoadingFlag: (state, value) => {
+    state.loading = value;
+  },
 };
