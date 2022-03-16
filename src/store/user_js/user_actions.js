@@ -16,7 +16,7 @@ export default {
       .finally(() => {
         setTimeout(() => {
           commit('setLoadingFlag', false);
-        }, 1000);
+        }, 800);
       });
   },
 };

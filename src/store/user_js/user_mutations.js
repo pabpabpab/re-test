@@ -30,6 +30,6 @@ export default {
     state.users = [...users];
   },
   setLoadingFlag: (state, value) => {
-    state.loading = value;
+    state.loadingFlag = value;
   },
 };

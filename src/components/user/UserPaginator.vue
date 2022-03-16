@@ -10,19 +10,24 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'UserPaginator',
+
   computed: {
     ...mapGetters('user', [
       'pageCount',
       'currentPage',
     ]),
   },
+
   methods: {
+    ...mapActions('user', [
+      'loadUsers',
+    ]),
     showPage(pageNumber) {
-      this.$store.dispatch('user/loadUsers', pageNumber);
+      this.loadUsers(pageNumber);
     },
   },
 };

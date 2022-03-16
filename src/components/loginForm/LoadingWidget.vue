@@ -1,5 +1,7 @@
 <template>
-  <div v-loading="loading" class="loading_widget">
+  <div
+    v-loading="loading"
+    class="loading_widget">
   </div>
 </template>
 

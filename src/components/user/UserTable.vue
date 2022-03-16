@@ -5,7 +5,7 @@
       max-height="500"
       :fit="true"
       empty-text="Нет пользователей"
-      v-loading="loading"
+      v-loading="loadingFlag"
       style="width: 100%">
       <el-table-column
         fixed
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapMutations, mapActions } from 'vuex';
 import UserPaginator from '@/components/user/UserPaginator.vue';
 
 export default {
@@ -75,13 +75,19 @@ export default {
   computed: {
     ...mapGetters('user', [
       'users',
-      'loading',
+      'loadingFlag',
     ]),
   },
 
   methods: {
+    ...mapMutations('user', [
+      'deleteUser',
+    ]),
+    ...mapActions('user', [
+      'loadUsers',
+    ]),
     deleteRow(index) {
-      this.$store.commit('user/deleteUser', index);
+      this.deleteUser(index);
     },
   },
 
@@ -92,7 +98,7 @@ export default {
   },
 
   mounted() {
-    this.$store.dispatch('user/loadUsers', 1);
+    this.loadUsers(1);
   },
 };
 </script>

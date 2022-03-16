@@ -7,5 +7,5 @@ export default {
   totalCount: 0,
   perPage: 0,
   currentPage: 1,
-  loading: false,
+  loadingFlag: false,
 };
