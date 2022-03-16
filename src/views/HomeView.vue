@@ -1,18 +1,24 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <el-row :gutter="20">
+    <el-col :span="12">
+      <div class="grid-content bg-purple">
+        <UserTable/>
+      </div>
+    </el-col>
+    <el-col :span="12">
+      <div class="grid-content bg-purple">
+      </div>
+    </el-col>
+  </el-row>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
+import UserTable from '@/components/user/UserTable.vue';
 
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld,
+    UserTable,
   },
 };
 </script>
