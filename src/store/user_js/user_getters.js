@@ -1,4 +1,7 @@
 export default {
   users: (state) => state.users,
-  usersLength: (state) => state.users.length,
+  totalCount: (state) => state.totalCount,
+  perPage: (state) => state.perPage,
+  pageCount: (state) => Math.ceil(state.totalCount / state.perPage),
+  currentPage: (state) => state.currentPage,
 };
