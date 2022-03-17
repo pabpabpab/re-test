@@ -76,6 +76,7 @@ export default {
     ...mapGetters('user', [
       'users',
       'loadingFlag',
+      'deletedUserName',
     ]),
   },
 
@@ -88,6 +89,7 @@ export default {
     ]),
     deleteRow(index) {
       this.deleteUser(index);
+      this.$message(`Пользователь ${this.deletedUserName} удален.`);
     },
   },
 

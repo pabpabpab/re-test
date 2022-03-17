@@ -8,4 +8,5 @@ export default {
   perPage: 0,
   currentPage: 1,
   loadingFlag: false,
+  deletedUserName: '',
 };

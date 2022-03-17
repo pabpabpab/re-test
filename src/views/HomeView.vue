@@ -7,6 +7,7 @@
     </el-col>
     <el-col :span="8">
       <div class="grid-content">
+        <EventTable/>
       </div>
     </el-col>
   </el-row>
@@ -14,11 +15,13 @@
 
 <script>
 import UserTable from '@/components/user/UserTable.vue';
+import EventTable from '@/components/socket/EventTable.vue';
 
 export default {
   name: 'HomeView',
   components: {
     UserTable,
+    EventTable,
   },
 };
 </script>

@@ -1,13 +1,10 @@
+import getFormattedDate from '@/auxiliary_functions/getFormattedDate';
+
 export default {
   setUsers: (state, data) => {
     const items = data.map((item) => {
-      const d = new Date(item.ctime * 1000);
-      const day = String(d.getDate()).length > 1 ? d.getDate() : `0${d.getDate()}`;
-      const month = String(d.getMonth()).length > 1 ? d.getMonth() : `0${d.getMonth()}`;
-      const hour = String(d.getHours()).length > 1 ? d.getHours() : `0${d.getHours()}`;
-      const minute = String(d.getMinutes()).length > 1 ? d.getMinutes() : `0${d.getMinutes()}`;
       const user = { ...item };
-      user.date = `${day}.${month}.${d.getFullYear()} ${hour}:${minute}`;
+      user.date = getFormattedDate(item.ctime);
       return user;
     });
     state.users = [...items];
@@ -26,6 +23,7 @@ export default {
       return;
     }
     const { users } = state;
+    state.deletedUserName = users[index].name;
     users.splice(index, 1);
     state.users = [...users];
   },

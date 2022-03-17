@@ -5,4 +5,5 @@ export default {
   pageCount: (state) => Math.ceil(state.totalCount / state.perPage),
   currentPage: (state) => state.currentPage,
   loadingFlag: (state) => state.loadingFlag,
+  deletedUserName: (state) => state.deletedUserName,
 };
