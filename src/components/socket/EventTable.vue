@@ -1,8 +1,6 @@
 <template>
   <el-table
     ref="eventTable"
-    :show-summary="true"
-    :sum-text="socketStatus"
     :data="tableData"
     height="460"
     max-height="460"
