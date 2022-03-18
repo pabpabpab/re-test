@@ -1,9 +1,10 @@
 <template>
   <el-table
     ref="eventTable"
+    highlight-current-row
     :data="tableData"
-    height="460"
-    max-height="460"
+    height="457"
+    max-height="457"
     :fit="true"
     empty-text="Нет событий"
     style="width: 100%">
@@ -48,6 +49,16 @@ export default {
         duration,
       });
     },
+
+    selectLastRow() {
+      const lastIndex = this.$refs.eventTable.data.length - 1;
+      this.$refs.eventTable.setCurrentRow(this.$refs.eventTable.data[lastIndex]);
+    },
+
+    scrollTableToLastRow() {
+      const newHeight = this.$refs.eventTable.bodyWrapper.scrollHeight;
+      this.$refs.eventTable.bodyWrapper.scrollTop = newHeight;
+    },
   },
 
   watch: {
@@ -55,8 +66,14 @@ export default {
       if (!message?.event) {
         return;
       }
-      const data = [...[message], ...this.tableData];
+
+      const data = [...this.tableData, ...[message]];
       this.tableData = [...data];
+
+      this.$nextTick(() => {
+        this.selectLastRow();
+        this.scrollTableToLastRow();
+      });
     },
 
     socketConnected(value) {
