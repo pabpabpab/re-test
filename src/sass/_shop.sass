@@ -14,8 +14,6 @@
   &:hover
     box-shadow: 0 2px 12px 0 rgb(0, 0, 0, 0.3)
 
-// #cb11ab
-
 .product_item
   position: relative
   display: block
@@ -46,6 +44,7 @@
     display: block
     cursor: pointer
   &__quick_view_link__wrapper
+    z-index: 1
     position: absolute
     top: 0
     left: 0
@@ -59,7 +58,6 @@
     pointer-events: none
     line-height: 13px
   &__quick_view_link
-    +font(13px, #303030, 100)
     background-color: rgba(255, 255, 255, 0.7)
     border-radius: 20px
     display: flex
@@ -69,6 +67,8 @@
     opacity: 0
     transition: opacity .3s
     pointer-events: auto
+  &__quick_view_link .el-link--inner
+    +font(13px, #303030, 100)
   &__info__wrapper
     height: 100%
     padding: 20px 0 0 0
@@ -126,16 +126,18 @@
     display: flex
     align-items: center
     padding: 7px 0 2px 0
-  &__toCart_link
+  &__toCart_button
     display: flex
     align-items: center
     justify-content: center
     width: 100px
     height: 30px
     border-radius: 5px
-    background-color: #cb11ab
-    +font(12px, #fff, 700)
     cursor: pointer
+    background-color: #cb11ab !important
+    border: none
+  &__toCart_button span
+    +font(12px, #fff, 700)
   &__favorite_icon__img
     height: 18px
     margin-left: 15px
