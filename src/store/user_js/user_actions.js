@@ -1,6 +1,6 @@
 export default {
 
-  loadUsers({ dispatch, commit, state }, pageNumber) {
+  loadUsersByPageNumber({ dispatch, commit, state }, pageNumber) {
     const offset = state.limit * (pageNumber - 1);
     const params = `?limit=${state.limit}&offset=${offset}`;
     const url = state.url.list + params;

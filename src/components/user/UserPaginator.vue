@@ -24,10 +24,10 @@ export default {
 
   methods: {
     ...mapActions('user', [
-      'loadUsers',
+      'loadUsersByPageNumber',
     ]),
     showPage(pageNumber) {
-      this.loadUsers(pageNumber);
+      this.loadUsersByPageNumber(pageNumber);
     },
   },
 };

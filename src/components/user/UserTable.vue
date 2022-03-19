@@ -85,7 +85,7 @@ export default {
       'deleteUser',
     ]),
     ...mapActions('user', [
-      'loadUsers',
+      'loadUsersByPageNumber',
     ]),
     deleteRow(index) {
       this.deleteUser(index);
@@ -100,7 +100,7 @@ export default {
   },
 
   mounted() {
-    this.loadUsers(1);
+    this.loadUsersByPageNumber(1);
   },
 };
 </script>
